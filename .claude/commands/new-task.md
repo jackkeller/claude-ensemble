@@ -70,9 +70,9 @@ Define "done":
 
 ### Files to Modify/Create
 ```
-app/page.tsx (modify)
-components/NewComponent.tsx (create)
-lib/utils.ts (modify)
+src/main.ext (modify)
+src/components/NewComponent.ext (create)
+src/utils/helpers.ext (modify)
 ```
 
 ### Dependencies

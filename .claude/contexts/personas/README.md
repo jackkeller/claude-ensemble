@@ -70,7 +70,7 @@ These personas:
 - Focus on domain-specific needs and behaviors
 - Reference project-specific workflows and features
 
-See project directories for examples (e.g., `.claude/projects/pocketcrud/personas/`).
+See project directories for examples (e.g., `.claude/projects/example-project/personas/`).
 
 ## Creating New Personas
 

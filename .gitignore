@@ -9,5 +9,3 @@ Thumbs.db
 *.swo
 *~
 
-# Project-specific configs (don't commit private project configs)
-.claude/projects/

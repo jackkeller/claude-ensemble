@@ -5,9 +5,9 @@ A curated collection of specialist agents, commands, and user personas for [Clau
 ## What's Included
 
 ### 🎭 Agents (Deep Specialists)
-- **review** - Expert code reviewer for pull request analysis and feedback
 - **a11y-expert** - Accessibility specialist for inclusive web applications
 - **fullstack-architect** - End-to-end application architecture and design
+- **review** - Expert code reviewer for pull request analysis and feedback
 
 ### ⚡ Commands (Quick Utilities)
 
@@ -97,13 +97,13 @@ See [.claude/projects/README.md](.claude/projects/README.md) for full details on
 claude-ensemble/
 ├── .claude/
 │   ├── agents/              # Deep specialist agents
-│   │   ├── review.md
 │   │   ├── a11y-expert.md
-│   │   └── fullstack-architect.md
+│   │   ├── fullstack-architect.md
+│   │   └── review.md
 │   ├── commands/            # Quick utilities
 │   │   ├── engineer.md      # Orchestrator
-│   │   ├── user-story.md
 │   │   ├── new-task.md
+│   │   ├── user-story.md
 │   │   ├── misc/
 │   │   │   └── feature-plan.md
 │   │   └── react/
@@ -111,9 +111,9 @@ claude-ensemble/
 │   │       └── page-new.md
 │   ├── contexts/
 │   │   └── personas/        # User personas
-│   │       ├── end-user.md
 │   │       ├── admin.md
-│   │       └── developer.md
+│   │       ├── developer.md
+│   │       └── end-user.md
 │   └── projects/            # Project-specific configs
 │       ├── README.md
 │       └── example-project/

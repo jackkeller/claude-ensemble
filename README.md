@@ -27,6 +27,11 @@ Pre-built user personas for understanding your audience:
 - **Admin** - Power users managing systems and workflows
 - **Developer** - Technical users building and integrating
 
+### 🗂️ Project Templates
+Example project configurations showing how to set up:
+- **Project Context** - Document tech stack, conventions, and common tasks
+- **MCP Servers** - Configure Model Context Protocol servers per-project
+
 ## Installation
 
 ### 1. Clone the Repository
@@ -79,6 +84,13 @@ Generate React components following best practices:
 /react:component-new UserProfile
 ```
 
+### Project-Specific Configurations
+For project-specific settings like MCP servers or context, see the [example project](.claude/projects/example-project/) showing:
+- `context.md` - Document your project's tech stack, conventions, and tasks
+- `mcp.json` - Configure MCP servers specific to your project
+
+See [.claude/projects/README.md](.claude/projects/README.md) for full details on creating and syncing project configs.
+
 ## File Structure
 
 ```
@@ -97,11 +109,16 @@ claude-ensemble/
 │   │   └── react/
 │   │       ├── component-new.md
 │   │       └── page-new.md
-│   └── contexts/
-│       └── personas/        # User personas
-│           ├── end-user.md
-│           ├── admin.md
-│           └── developer.md
+│   ├── contexts/
+│   │   └── personas/        # User personas
+│   │       ├── end-user.md
+│   │       ├── admin.md
+│   │       └── developer.md
+│   └── projects/            # Project-specific configs
+│       ├── README.md
+│       └── example-project/
+│           ├── context.md
+│           └── mcp.json
 └── README.md
 ```
 

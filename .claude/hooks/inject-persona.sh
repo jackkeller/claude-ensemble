@@ -44,15 +44,10 @@ fi
 if [[ -n "$persona_path" ]] && [[ -f "$persona_path" ]]; then
   persona_content=$(cat "$persona_path")
 
-  # Create JSON response with additional context
-  # Escape newlines and quotes for JSON
-  escaped_content=$(echo "$persona_content" | jq -Rs .)
-
-  cat <<EOF
-{
-  "additionalContext": "ACTIVE PERSONA: $persona_name\n\nYou are building features for this user persona. Keep their needs, technical level, and accessibility requirements in mind:\n\n$escaped_content"
-}
-EOF
+  # Create JSON response with additional context using jq for proper escaping
+  jq -n --arg name "$persona_name" --arg content "$persona_content" '{
+    additionalContext: "ACTIVE PERSONA: \($name)\n\nYou are building features for this user persona. Keep their needs, technical level, and accessibility requirements in mind:\n\n\($content)"
+  }'
 fi
 
 exit 0

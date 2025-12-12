@@ -102,7 +102,7 @@ Enable automated workflows with hook scripts. Example configuration in `.claude/
 {
   "hooks": {
     "postToolUse": {
-      "command": "~/.claude/hooks/auto-format.sh",
+      "command": ".claude/hooks/auto-format.sh",
       "description": "Auto-format files after edits",
       "matchers": [{
         "toolName": "Edit",
@@ -115,7 +115,7 @@ Enable automated workflows with hook scripts. Example configuration in `.claude/
 }
 ```
 
-See [.claude/hooks/README.md](.claude/hooks/README.md) for more hook types and examples.
+See [.claude/hooks/README.md](.claude/hooks/README.md) for configuration options and custom hook development.
 
 ### Project-Specific Configurations
 For project-specific settings like MCP servers or context, see the [example project](.claude/projects/example-project/) showing:

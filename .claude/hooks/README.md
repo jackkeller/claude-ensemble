@@ -17,14 +17,17 @@ Hooks are shell scripts that run automatically at specific events during Claude 
 
 ## Configuration
 
-Hooks are configured in project-level or user-level settings:
+Hooks are configured in project-level or user-level settings. Hook scripts can be stored either:
+- **Project-level**: `.claude/hooks/` (included in repo, shared with team)
+- **User-level**: `~/.claude/hooks/` or `~/.config/claude-code/hooks/` (personal, across projects)
 
 ### Project-Level (`.claude/projects/{project}/hooks.json`)
+Use relative paths for project-level hooks (committed to repo):
 ```json
 {
   "hooks": {
     "postToolUse": {
-      "command": "~/.claude/hooks/auto-format.sh",
+      "command": ".claude/hooks/auto-format.sh",
       "description": "Auto-format files after edits",
       "matchers": [{
         "toolName": "Edit",
@@ -38,6 +41,7 @@ Hooks are configured in project-level or user-level settings:
 ```
 
 ### User-Level (`~/.config/claude-code/settings.json`)
+Use absolute paths with `~` for user-level hooks (personal config):
 ```json
 {
   "hooks": {
@@ -142,11 +146,11 @@ Hooks enhance orchestrator workflows:
 {
   "hooks": {
     "userPromptSubmit": {
-      "command": "~/.claude/hooks/inject-persona.sh",
+      "command": ".claude/hooks/inject-persona.sh",
       "description": "Auto-inject persona before /engineer routing"
     },
     "subagentStop": {
-      "command": "~/.claude/hooks/chain-agents.sh",
+      "command": ".claude/hooks/chain-agents.sh",
       "description": "Auto-route to next specialist after agent completes"
     }
   }

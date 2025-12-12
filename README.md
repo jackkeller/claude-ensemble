@@ -21,11 +21,22 @@ A curated collection of specialist agents, commands, and user personas for [Clau
 - `/react:component-new` - Create React components with TypeScript
 - `/react:page-new` - Create Next.js pages with App Router
 
+**Skills & Configuration:**
+- `/misc:skill-builder` - Build new skills with guided questions
+
 ### 👥 Personas (User-Centered Development)
 Pre-built user personas for understanding your audience:
 - **End User** - Non-technical users focused on task completion
 - **Admin** - Power users managing systems and workflows
 - **Developer** - Technical users building and integrating
+
+### 🪝 Hooks (Automation & Workflows)
+Example hook scripts that run automatically at specific events:
+- **auto-format.sh** - Auto-format code after edits (PostToolUse)
+- **inject-persona.sh** - Inject active persona into prompts (UserPromptSubmit)
+- **lint-check.sh** - Run linters before commits (PreToolUse)
+
+See [.claude/hooks/README.md](.claude/hooks/README.md) for configuration and custom hook development.
 
 ### 🗂️ Project Templates
 Example project configurations showing how to set up:
@@ -84,6 +95,28 @@ Generate React components following best practices:
 /react:component-new UserProfile
 ```
 
+### Using Hooks
+Enable automated workflows with hook scripts. Example configuration in `.claude/projects/{project}/hooks.json`:
+
+```json
+{
+  "hooks": {
+    "postToolUse": {
+      "command": "~/.claude/hooks/auto-format.sh",
+      "description": "Auto-format files after edits",
+      "matchers": [{
+        "toolName": "Edit",
+        "paramMatchers": {
+          "file_path": ".*\\.(ts|tsx|js|jsx)$"
+        }
+      }]
+    }
+  }
+}
+```
+
+See [.claude/hooks/README.md](.claude/hooks/README.md) for more hook types and examples.
+
 ### Project-Specific Configurations
 For project-specific settings like MCP servers or context, see the [example project](.claude/projects/example-project/) showing:
 - `context.md` - Document your project's tech stack, conventions, and tasks
@@ -105,7 +138,8 @@ claude-ensemble/
 │   │   ├── new-task.md
 │   │   ├── user-story.md
 │   │   ├── misc/
-│   │   │   └── feature-plan.md
+│   │   │   ├── feature-plan.md
+│   │   │   └── skill-builder.md
 │   │   └── react/
 │   │       ├── component-new.md
 │   │       └── page-new.md
@@ -114,6 +148,11 @@ claude-ensemble/
 │   │       ├── admin.md
 │   │       ├── developer.md
 │   │       └── end-user.md
+│   ├── hooks/               # Automation scripts
+│   │   ├── README.md
+│   │   ├── auto-format.sh
+│   │   ├── inject-persona.sh
+│   │   └── lint-check.sh
 │   └── projects/            # Project-specific configs
 │       ├── README.md
 │       └── example-project/
